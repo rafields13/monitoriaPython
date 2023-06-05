@@ -8,29 +8,27 @@
 
 # d) A porcentagem de números pares.
 
-x = 0
-sum = 0
-counter = 0
-pairsNumbers = 0
+def calculate_number_information():
+    numbers = []
+    total_number_elements = 0
+    sum = 0
+    pair_numbers = 0
 
-while x != -1:
+    quantity = int(input("Type the quantity of numbers to read: "))
 
-    x = int(input('Digite um número, por favor: \nObs: Caso queira sair, digite -1.'))
+    for _ in range(quantity):
+        number = int(input("Please, type a number: "))
+        numbers.append(number)
+        sum += number
+        total_number_elements += 1
 
-    if x == -1:
-        break
+        if number % 2 == 0:
+            pair_numbers += 1
 
-    sum += x
-    counter += 1
+    average = sum / total_number_elements
+    percentage_pair_numbers = (pair_numbers / total_number_elements) * 100
 
-    if x % 2 == 0:
-        pairsNumbers += 1
+    print(total_number_elements, sum, average, percentage_pair_numbers)
 
-print(f'A quantidade de números é: {counter}.')
-print(f'A soma dos n números é: {sum}.')
 
-average = sum / counter
-print(f'A média dos números informados é: {average}')
-
-porcentagePairsNumbers = (pairsNumbers / counter) / 100
-print(f'A porcentagem de números pares correspondem a: {porcentagePairsNumbers:.1f}')
+calculate_number_information()
